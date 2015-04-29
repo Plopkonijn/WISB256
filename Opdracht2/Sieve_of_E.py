@@ -5,22 +5,24 @@ N = int(sys.argv[1])
 
 T1 = time.time()
 sN = int(math.sqrt(N))+1
-primes = {i for i in range(3,N,2)}
-
-for i in range(3,sN):
-	if i in primes:
-		for j in range(i*i,N,2*i):
-			try:
-				primes.remove(j)
-			except:
-				pass
+Sieve = [False] + [True] * (N>>1)
+primes = [2]
+for i in range(3,sN,2):
+	print('\ni:',i,Sieve[i//2])
+	if Sieve[i//2]:
+		for j in range(i*i,N,i<<1):
+			print('j:',j,Sieve[j//2])
+			Sieve[j//2]=False
 T2 = time.time()
 print('Found', len(primes),'prime numbers smaller than',N,'in',T2-T1,'sec')		
-primes = [p for p in primes]
-primes.sort()				
+
+for i in range(len(Sieve)):
+	print(i, 1 + (i<<1), Sieve[i//2])
+	if Sieve[i//2]:
+		primes.append(1+ i<<1)
 
 pout = open(sys.argv[2],'w')
-pout.write('2\n')
+
 for p in primes:
 	pout.write(str(p)+'\n')
 pout.close()
