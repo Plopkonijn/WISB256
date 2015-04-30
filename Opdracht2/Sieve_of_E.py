@@ -1,8 +1,7 @@
 import sys
-import math
 import time
 
-def primes_sieve_E1(limit):
+def primes_sieve_E(limit):
 	Sieve = [True] * (limit//2)
 	Sieve[0] = False
 	yield 2
@@ -14,7 +13,7 @@ def primes_sieve_E1(limit):
 
 N = int(sys.argv[1])
 T1 = time.time()
-primes = list(primes_sieve_E1(N))
+primes = list(primes_sieve_E(N))
 T2 = time.time()
 print('Found', len(primes),'prime numbers smaller than',N,'in',T2-T1,'sec')						
 pout = open(sys.argv[2],'w')

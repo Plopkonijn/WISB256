@@ -20,7 +20,7 @@ print('N/log(N)      =',nlogn)
 print('ratrio        =',ratio)
 print('-'*20)
 pi =  twincount
-nlogn = (C2*2*N)/(math.log(N)**2))
+nlogn = (C2*2*N)/(math.log(N)**2)
 ratio = pi/nlogn
 print('pi_2(N)       =',twincount)
 print('2CN/log(N)^2  =',nlogn)
