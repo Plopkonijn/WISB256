@@ -1,3 +1,3 @@
-name = input("What is you name? ")
+name = input("What is your name? ")
 count = input("How many greetings? ")
-print(count + ' x Hello, ' + name + '!')
+print(count,'x Hello,', name + '!')
